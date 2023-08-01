@@ -1,32 +1,39 @@
-import { CollectionConfig } from 'payload/types';
+import type { CollectionConfig } from 'payload/types';
 
-export const mediaSlug = 'media';
 const Media: CollectionConfig = {
-    slug: mediaSlug,
-    access: {
-        read: (): boolean => true, // Everyone can read Media
-    },
+    slug: 'media',
     upload: {
-        adminThumbnail: 'card',
+        // staticDir: path.resolve(__dirname, '../../media'),
         imageSizes: [
             {
-                name: 'card',
-                width: 640,
-                height: 480,
+                height: 400,
+                width: 400,
+                crop: 'center',
+                name: 'square',
             },
             {
-                name: 'feature',
-                width: 1024,
-                height: 576,
+                width: 900,
+                height: 450,
+                crop: 'center',
+                name: 'sixteenByNineMedium',
             },
         ],
+    },
+    access: {
+        read: () => true,
     },
     fields: [
         {
             name: 'alt',
-            label: 'Alt Text',
             type: 'text',
             required: true,
+        },
+        {
+            name: 'caption',
+            type: 'richText',
+            admin: {
+                elements: ['link'],
+            },
         },
     ],
 };

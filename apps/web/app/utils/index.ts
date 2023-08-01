@@ -1,5 +1,5 @@
-import type { Page } from '@org/cms';
+import type { Page, Product } from '@org/cms';
 
-export const findPageBySlug = (slug: string, pages: Page[]) => {
-    return pages?.find((page) => page.slug === slug);
+export const findProductBySlug = (slug: string, products: Product[]) => {
+  return products?.find((product) => product.slug === slug);
 };

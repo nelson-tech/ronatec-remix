@@ -35,21 +35,31 @@
     },
     "dependencies": {
         "@org/ui": "workspace:*",
-        "payload": "^1.6.9"
+        "@payloadcms/plugin-cloud-storage": "^1.0.19",
+        "@payloadcms/plugin-nested-docs": "^1.0.5",
+        "cookie": "^0.5.0",
+        "graphql": "^16.7.1",
+        "he": "^1.2.0",
+        "nodemailer": "^6.9.4",
+        "payload": "^1.11.0"
     },
     "devDependencies": {
         "@org/shared": "workspace:*",
+        "@types/cookie": "^0.5.1",
         "@types/express": "^4.17.17",
-        "@types/node": "^18.13.0",
-        "@types/react": "^18.0.27",
+        "@types/he": "^1.2.0",
+        "@types/node": "^20.4.1",
+        "@types/nodemailer": "^6.4.9",
+        "@types/react": "^18.2.14",
         "@types/react-router-dom": "^5.3.3",
         "copyfiles": "^2.4.1",
         "cross-env": "^7.0.3",
-        "nodemon": "^2.0.20",
+        "nodemon": "^3.0.1",
         "react": "^18.2.0",
-        "react-router-dom": "^5.3.4",
+        "react-router-dom": "^6.14.1",
         "ts-node": "^10.9.1",
-        "typescript": "^4.9.5"
+        "typescript": "^5.1.6",
+        "vitest": "^0.33.0"
     },
     "peerDependencies": {
         "@org/shared": "workspace:*",
