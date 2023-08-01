@@ -90,7 +90,7 @@ payload
       transportOptions: {
         host: MAIL_HOST,
         auth: { user: MAIL_USERNAME, pass: MAIL_PASSWORD },
-        port: MAIL_PORT,
+        port: Number.parseInt(MAIL_PORT ?? "587"),
         // secure: true,
       },
       fromName: "Ronatec C2C, Inc.",
