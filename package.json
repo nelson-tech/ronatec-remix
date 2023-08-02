@@ -12,7 +12,9 @@
         "serve": "turbo run serve",
         "dev": "turbo run dev --parallel",
         "lint": "turbo run lint",
-        "start:prod": "cross-env PAYLOAD_CONFIG_PATH=../cms/dist/config.js NODE_ENV=production pm2 start pnpm --name \"Ronatec Remix\" -- serve",
+        "pm2-prod-start": "cross-env PAYLOAD_CONFIG_PATH=../cms/dist/config.js NODE_ENV=production pm2 start pnpm --name \"Ronatec Remix\" -- serve",
+        "pm2-prod-stop": "pm2 stop \"Ronatec Remix\" && pm2 delete \"Ronatec Remix\"",
+        "pm2-prod-restart": "pm2 restart \"Ronatec Remix\"",
         "format": "prettier --write \"**/*.{ts,tsx,md}\""
     },
     "devDependencies": {
