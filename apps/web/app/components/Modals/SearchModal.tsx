@@ -1,4 +1,3 @@
-import { shallow } from "zustand/shallow"
 
 import useStore from "~/lib/hooks/useStore"
 
@@ -15,7 +14,6 @@ const SearchModal = () => {
       searchOpen: state.ui.searchOpen,
       setSearchOpen: state.ui.setSearchOpen,
     }),
-    shallow
   )
 
   return (

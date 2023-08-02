@@ -21,16 +21,16 @@
         "lint": "eslint --ext .ts,.tsx,.js,.jsx ./app"
     },
     "dependencies": {
-        "@headlessui/react": "^1.7.15",
+        "@headlessui/react": "^1.7.16",
         "@heroicons/react": "^2.0.18",
         "@org/cms": "workspace:*",
         "@org/ui": "workspace:*",
-        "@remix-run/express": "^1.18.1",
-        "@remix-run/node": "^1.18.1",
-        "@remix-run/react": "^1.18.1",
+        "@remix-run/express": "^1.19.1",
+        "@remix-run/node": "^1.19.1",
+        "@remix-run/react": "^1.19.1",
         "escape-html": "^1.0.3",
         "framer-motion": "^10.15.0",
-        "html-react-parser": "^4.0.0",
+        "html-react-parser": "^4.2.0",
         "jwt-decode": "^3.1.2",
         "lodash.debounce": "^4.0.8",
         "react": "^18.2.0",
@@ -41,27 +41,27 @@
         "remove": "^0.1.5",
         "slate": "^0.94.1",
         "slick-carousel": "^1.8.1",
-        "zustand": "^4.3.9"
+        "zustand": "^4.4.0"
     },
     "devDependencies": {
-        "@remix-run/dev": "^1.18.1",
-        "@remix-run/eslint-config": "^1.18.1",
+        "@remix-run/dev": "^1.19.1",
+        "@remix-run/eslint-config": "^1.19.1",
         "@tailwindcss/typography": "^0.5.9",
         "@types/escape-html": "^1.0.2",
         "@types/express": "^4.17.17",
         "@types/lodash.debounce": "^4.0.7",
-        "@types/react": "^18.2.14",
-        "@types/react-dom": "^18.2.6",
+        "@types/react": "^18.2.18",
+        "@types/react-dom": "^18.2.7",
         "@types/react-simple-maps": "^3.0.0",
         "@types/react-slick": "^0.23.10",
-        "eslint": "^8.44.0",
+        "eslint": "^8.46.0",
         "nodemon": "^3.0.1",
         "npm-run-all": "^4.1.5",
-        "payload": "^1.11.0",
+        "payload": "^1.11.8",
         "remix-flat-routes": "^0.5.10",
-        "tailwindcss": "^3.3.2",
+        "tailwindcss": "^3.3.3",
         "typescript": "^5.1.6",
-        "vitest": "^0.33.0"
+        "vitest": "^0.34.1"
     },
     "engines": {
         "node": ">=16"

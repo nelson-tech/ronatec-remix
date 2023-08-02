@@ -2,7 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from 'react'
 import { useAllFormFields, useForm } from 'payload/components/forms'
-import { Field } from 'payload/dist/admin/components/forms/Form/types'
+import { Fields as Field } from 'payload/dist/admin/components/forms/Form/types'
 
 import { defaults } from '../defaults'
 

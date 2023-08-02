@@ -1,4 +1,3 @@
-import { shallow } from "zustand/shallow"
 
 import useStore from "~/lib/hooks/useStore"
 
@@ -14,8 +13,7 @@ const LoginModal = () => {
     (state) => ({
       login: state.auth.loginModal,
       setLoginOpen: state.auth.setLoginModalOpen,
-    }),
-    shallow
+    })
   )
 
   return (

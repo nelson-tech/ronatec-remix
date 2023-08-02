@@ -1,5 +1,4 @@
 import { Fragment } from "react"
-import { shallow } from "zustand/shallow"
 import { Dialog, Transition } from "@headlessui/react"
 
 import useStore from "~/lib/hooks/useStore"
@@ -15,8 +14,7 @@ const MobileMenu = () => {
     (state) => ({
       open: state.ui.mobileMenuOpen,
       setOpen: state.ui.setMobileMenuOpen,
-    }),
-    shallow
+    })
   )
 
   return (

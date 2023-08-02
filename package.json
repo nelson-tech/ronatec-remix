@@ -17,9 +17,9 @@
     },
     "devDependencies": {
         "@org/eslint-config": "workspace:*",
-        "prettier": "^2.8.4",
+        "prettier": "^3.0.0",
         "turbo": "^1.10.12",
-        "typescript": "^4.9.5"
+        "typescript": "^5.1.6"
     },
     "engines": {
         "node": ">=16.0.0"

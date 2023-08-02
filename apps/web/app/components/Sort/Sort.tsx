@@ -1,5 +1,4 @@
 import { Fragment, RefObject } from "react"
-import { shallow } from "zustand/shallow"
 import { Menu, Transition } from "@headlessui/react"
 import ChevronDownIcon from "@heroicons/react/20/solid/ChevronDownIcon"
 import ViewGridIcon from "@heroicons/react/20/solid/ViewColumnsIcon"
@@ -38,8 +37,7 @@ const Sort = ({ loading, productRef, selectedCategories }: PropsType) => {
       viewMode: state.shop.viewMode,
       setViewMode: state.shop.setViewMode,
       setGlobalSort: state.shop.setGlobalSort,
-    }),
-    shallow
+    })
   )
 
   const handleSort = async (option: SortOptionType) => {

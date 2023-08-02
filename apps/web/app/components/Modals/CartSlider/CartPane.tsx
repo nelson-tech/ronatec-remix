@@ -1,6 +1,5 @@
-import { Fragment, useState } from "react"
+import { Fragment } from "react"
 import { Dialog, Transition } from "@headlessui/react"
-import { shallow } from "zustand/shallow"
 import ArrowRightIcon from "@heroicons/react/24/outline/ArrowRightIcon"
 import XIcon from "@heroicons/react/20/solid/XMarkIcon"
 
@@ -23,8 +22,7 @@ const CartPane = () => {
       cart: state.cart.state,
       setOpen: state.cart.setOpen,
       setLoading: state.cart.setLoading,
-    }),
-    shallow
+    })
   )
 
   const { removeFromCart, clearCart } = useCart()

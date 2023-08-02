@@ -1,4 +1,3 @@
-import { shallow } from "zustand/shallow"
 import ShoppingCartIcon from "@heroicons/react/24/outline/ShoppingCartIcon"
 
 import useStore from "~/lib/hooks/useStore"
@@ -17,8 +16,7 @@ const CartButton = () => {
       cart: state.cart.state,
       loading: state.cart.loading,
       setOpen: state.cart.setOpen,
-    }),
-    shallow
+    })
   )
 
   return (

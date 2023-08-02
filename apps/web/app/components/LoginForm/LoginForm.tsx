@@ -1,6 +1,5 @@
 import { MutableRefObject, useEffect, useState } from "react"
 import { Link } from "@remix-run/react"
-import { shallow } from "zustand/shallow"
 import { LockClosedIcon } from "@heroicons/react/20/solid"
 
 import useStore from "~/lib/hooks/useStore"
@@ -28,8 +27,7 @@ const LoginForm = ({ modalRef, setOpen }: LoginFormProps) => {
   const { loggedIn } = useStore(
     (state) => ({
       loggedIn: state.auth.loggedIn,
-    }),
-    shallow
+    })
   )
 
   // const { login } = useAuth()

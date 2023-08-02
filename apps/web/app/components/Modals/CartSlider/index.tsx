@@ -1,5 +1,4 @@
 import { Fragment } from "react"
-import { shallow } from "zustand/shallow"
 import { Dialog, Transition } from "@headlessui/react"
 
 import useStore from "~/lib/hooks/useStore"
@@ -11,8 +10,7 @@ const CartSlider = () => {
     (state) => ({
       open: state.cart.open,
       setOpen: state.cart.setOpen,
-    }),
-    shallow
+    })
   )
 
   return (
