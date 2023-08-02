@@ -1,5 +1,11 @@
 import { Cart, Order } from "@org/cms"
-import { ActionFunction, json } from "@remix-run/node"
+import {
+  ActionArgs,
+  ActionFunction,
+  TypedResponse,
+  json,
+  redirect,
+} from "@remix-run/node"
 import getFetcherData from "~/lib/utils/getFetcherData"
 import { getSession } from "~/sessions"
 
@@ -11,7 +17,10 @@ type CheckoutInput = {
   company?: string
 }
 
-export const action: ActionFunction = async ({ request, context }) => {
+export const action = async ({
+  request,
+  context,
+}: ActionArgs): Promise<TypedResponse<{ error?: any; order?: Order }>> => {
   const { payload, user } = context
   const fetcherData = await getFetcherData(request)
 
@@ -59,6 +68,8 @@ export const action: ActionFunction = async ({ request, context }) => {
               data: order,
             })
             console.log("Order", newOrder)
+
+            newOrder.id && redirect(`/thanks?orderId=${newOrder.id}`)
 
             return json({ order: newOrder })
           } catch (error) {

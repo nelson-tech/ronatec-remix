@@ -1,8 +1,58 @@
-import { Form } from "@remix-run/react"
+import {
+  Form,
+  useActionData,
+  useFetcher,
+  useNavigate,
+  useNavigation,
+} from "@remix-run/react"
+import { useEffect } from "react"
 import FormField from "~/components/FormField"
 import LoadingSpinner from "~/components/LoadingSpinner"
+import useStore from "~/lib/hooks/useStore"
+import type { action } from "./CheckoutRouteAction"
 
 const CheckoutForm = () => {
+  const navigation = useNavigation()
+  const navigate = useNavigate()
+  const data = useActionData<typeof action>()
+
+  const setAlert = useStore((state) => state.alert.setAlert)
+
+  useEffect(() => {
+    switch (navigation.state) {
+      case "submitting":
+        setAlert({
+          open: true,
+          kind: "info",
+          primary: "Processing order.",
+        })
+        break
+
+      default:
+        break
+    }
+  }, [navigation.state])
+
+  useEffect(() => {
+    if (data?.error) {
+      setAlert({
+        open: true,
+        kind: "error",
+        primary: "Error Checking Out",
+        secondary: data.error,
+      })
+    }
+    if (data?.order) {
+      setAlert({
+        open: true,
+        kind: "success",
+        primary: "Order has been successfully created.",
+        secondary: "Redirecting...",
+      })
+      navigate(`/thanks?orderId=${data.order.id}`)
+    }
+  }, [data])
+
   return (
     <section
       aria-labelledby="payment-heading"

@@ -64,33 +64,33 @@ const Menus: GlobalConfig = {
             },
           ],
         },
-        {
-          name: "footerMenu",
-          label: "Footer Menu",
-          fields: [
-            {
-              name: "links",
-              type: "array",
-              label: "Links",
-              labels: {
-                singular: "Footer Menu Item",
-                plural: "Footer Menu Items",
-              },
-              fields: [
-                link({
-                  appearances: false,
-                }),
-              ],
-              admin: {
-                components: {
-                  RowLabel: ({ data }: any) => {
-                    return data?.label || `Menu Item`
-                  },
-                },
-              },
-            },
-          ],
-        },
+        // {
+        //   name: "footerMenu",
+        //   label: "Footer Menu",
+        //   fields: [
+        //     {
+        //       name: "links",
+        //       type: "array",
+        //       label: "Links",
+        //       labels: {
+        //         singular: "Footer Menu Item",
+        //         plural: "Footer Menu Items",
+        //       },
+        //       fields: [
+        //         link({
+        //           appearances: false,
+        //         }),
+        //       ],
+        //       admin: {
+        //         components: {
+        //           RowLabel: ({ data }: any) => {
+        //             return data?.label || `Menu Item`
+        //           },
+        //         },
+        //       },
+        //     },
+        //   ],
+        // },
       ],
     },
   ],

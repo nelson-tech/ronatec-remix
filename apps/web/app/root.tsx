@@ -30,8 +30,9 @@ import styles from "~/styles/global.css"
 
 import Header from "~/components/Header"
 import Modals from "~/components/Modals"
-import Footer from "~/components/Footer/Footer"
+import Footer from "~/components/Footer"
 import GlobalLoading from "~/components/GlobalLoading"
+import Alerts from "./components/Alerts"
 
 export type RootLoaderData = {
   menus: Menu | null
@@ -161,6 +162,7 @@ export default function App() {
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
+          <Alerts />
           <Modals />
         </StoreContext>
       </body>
