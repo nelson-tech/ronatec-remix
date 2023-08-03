@@ -1,5 +1,4 @@
-import { Order, Product } from "payload/generated-types"
-import getParsedPrice from "../../../../../../utils/getParsedPrice"
+import { Order } from "payload/generated-types"
 import head from "./head"
 
 const adminNotification = (order: Partial<Order>) => {
