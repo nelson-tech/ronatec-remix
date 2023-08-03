@@ -9,11 +9,11 @@ const useCart = () => {
     (stores) => stores.cart
   )
 
-  const cartFetcher = useFetcher<{ cart: Cart }>()
+  const cartFetcher = useFetcher<{ cart: Cart | null }>()
 
   // Update cart state
   useEffect(() => {
-    if (cartFetcher.data?.cart) {
+    if (cartFetcher.data && Object.keys(cartFetcher.data).includes("cart")) {
       setCart(cartFetcher.data.cart)
       setLoading(false)
     }
@@ -24,8 +24,23 @@ const useCart = () => {
   //   setLoading(cartFetcher.state === "loading")
   // }, [cartFetcher])
 
+  const fetchCart = async () => {
+    setLoading(true)
+
+    console.log("Fetching cart")
+
+    cartFetcher.submit(
+      {},
+      {
+        method: "post",
+        action: "/actions/cart/fetch",
+        encType: "application/json",
+      }
+    )
+  }
+
   const addToCart = async (items: AddToCartInput) => {
-    await setLoading(true)
+    setLoading(true)
 
     cartFetcher.submit(items, {
       method: "post",
@@ -58,7 +73,7 @@ const useCart = () => {
     )
   }
 
-  return { cart: state, addToCart, removeFromCart, clearCart }
+  return { cart: state, addToCart, removeFromCart, clearCart, fetchCart }
 }
 
 export default useCart

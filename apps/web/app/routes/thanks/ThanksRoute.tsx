@@ -2,6 +2,8 @@ import OrderConfirmation from "~/components/OrderConfirmation"
 import type { Order } from "@org/cms"
 import { Link, useLoaderData } from "@remix-run/react"
 import { LoaderData } from "./ThanksRouteLoader"
+import useCart from "~/lib/hooks/useCart"
+import { useEffect, useState } from "react"
 
 // ####
 // #### Component
@@ -10,10 +12,20 @@ import { LoaderData } from "./ThanksRouteLoader"
 // TODO - Fix error/missing display order
 
 const ThanksRoute = () => {
+  const [loaded, setLoaded] = useState(false)
   const { order } = useLoaderData<LoaderData>()
+
+  const { fetchCart } = useCart()
   // const order = await getOrderById(searchParams?.order)
 
   // const loggedIn = useStore(state => state.auth.loggedIn)
+
+  useEffect(() => {
+    if (!loaded) {
+      fetchCart()
+      setLoaded(true)
+    }
+  }, [])
 
   return (
     <>
