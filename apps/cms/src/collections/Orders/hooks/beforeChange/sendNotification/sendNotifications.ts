@@ -3,6 +3,8 @@
 import { BeforeChangeHook } from "payload/dist/collections/config/types"
 import { Order } from "payload/generated-types"
 import type { SendMailOptions } from "nodemailer"
+import receipt from "./html/receipt"
+import adminNotification from "./html/adminNotification"
 
 const sendNotification: BeforeChangeHook<Order> = async ({
   req,
@@ -20,7 +22,7 @@ const sendNotification: BeforeChangeHook<Order> = async ({
       const customerEmail: SendMailOptions = {
         to: data.orderedBy?.email,
         subject: `Ronatec C2C | Order #${data.orderNumber} received!`,
-        html: `<h1>Ronatec C2C, Inc</h1> <br> <h5>Order #${data.orderNumber} has been received!</h5><br /><p>A sales representative will contact you soon to complete your order.`,
+        html: receipt(data),
       }
       req.payload.sendEmail(customerEmail)
 
@@ -29,8 +31,8 @@ const sendNotification: BeforeChangeHook<Order> = async ({
       const adminEmail: SendMailOptions = {
         to: (await req.payload.findGlobal({ slug: "settings" })).orders
           .adminEmail,
-        subject: `New order placed!`,
-        html: `<h2>New order placed!</h2><br /><p>Order #${data.orderNumber} has been placed by ${data.orderedBy?.name?.first} ${data.orderedBy?.name?.last}!`,
+        subject: `New order placed! | Order #${data.orderNumber}`,
+        html: adminNotification(data),
       }
       req.payload.sendEmail(adminEmail)
 
